@@ -1,30 +1,11 @@
-import { useEffect } from 'react';
-import { getData } from './features/covidDataSlice';
-import { useDispatch, useSelector } from 'react-redux';
-import './App.css';
+import GeneralData from './components/GeneralData'
 
-function App() {
-
-  const { covidData, loading} = useSelector((state) => state.data)  
-
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-     dispatch(getData())
-  }, [])
-  
-
-  if(loading) {
-    return (
-      <h1>loading...</h1>
-    )
-  }
-
+const App = () => {
   return (
-    <div className="App">
-      <h2></h2>
-    </div>
-  );
+    <>
+     <GeneralData />
+    </>
+  )
 }
 
-export default App;
+export default App

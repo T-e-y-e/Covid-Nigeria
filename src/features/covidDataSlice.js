@@ -1,9 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const getData = createAsyncThunk("covidData/getData", async () => {
-    return await fetch("https://covidnigeria.herokuapp.com/api").then((res) => {
-        res.json()
-    })
+    try{
+        const response = await fetch('https://covidnigeria.herokuapp.com/api');
+         const data = await response.json();
+         return data
+        }catch(error) {
+        console.log(error);
+    }
 });
 
 const covidDataSlice = createSlice(({
